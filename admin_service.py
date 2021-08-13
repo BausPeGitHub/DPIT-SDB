@@ -50,7 +50,7 @@ class AdminService :
             content = f.readlines()
         with open("products.txt" , "w") as g :
             for line in content :
-                if line.strip("\n").split(" , ")[1] != identification_code :
+                if line.strip("\n").split(" , ")[0] != identification_code :
                     g.write(line)
                 else :
                     g.write(new_code + " , " + new_name + " , " + new_firm + " , " + str(new_price) + " , " + str(new_quantity) + "\n")
