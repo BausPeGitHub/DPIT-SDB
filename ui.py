@@ -98,7 +98,10 @@ class ConsoleUI :
     def __view_products_in_budget(self) :
         price = input("Budget : ")
         self.__product_validator.price_validator(price)
-        self.__client_service.products_in_budget(float(price))
+        if self.__client_service.products_in_budget(float(price)) is not None :
+            self.__client_service.products_in_budget(float(price))
+        else :
+            print("No products in budget!")
     
     def __view_products_in_promotion(self) :
         self.__client_service.products_in_promotion()

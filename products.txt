@@ -1,5 +1,8 @@
-1 , 1 , 1 , 1.0 , 1
-8 , 8 , 8 , 8 , 8
-6 , 6 , 6 , 6.0 , 6
-5 , 5 , 5 , 5 , 5
-12345 , carne de pui , avicola , 11 , 1000
+1 , carne de pui , avicola , 100 , 100
+3 , carne de porc , avicola , 50 , 100
+4 , carne de vita , avicola , 150 , 100
+6 , mere , agricool , 5 , 1000
+7 , rimel , makeup , 100 , 20
+8 , ruj , makeup , 70 , 80
+9 , crema , makeup , 100.0 , 10
+11 , parfum , makeup , 1500 , 1

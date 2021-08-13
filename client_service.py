@@ -48,7 +48,7 @@ class ClientService :
     def products_in_budget(self , given_price) :
         ans = []
         for product in self.__product_list :
-            if product.get_price() <= given_price :
+            if float(product.get_price()) <= given_price :
                 ans.append(product)
         ans = sorted(ans , key = lambda x : x.get_price() , reverse = True) 
         print(*ans , sep = "\n\n")
