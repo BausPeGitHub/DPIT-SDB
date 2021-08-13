@@ -55,7 +55,7 @@ class ConsoleUI :
         self.__product_validator.price_validator(new_price)
         new_quantity = input("Product new quantity : ")
         self.__product_validator.quantity_validator(new_quantity)
-        self.__admin_service.update_product(product_to_be_updated_code , new_code , new_name , new_firm , new_price , new_quantity)
+        self.__admin_service.update_product(product_to_be_updated_code , new_code , new_name , new_firm , float(new_price) , int(new_quantity))
         print("Product updated successfully!")
    
     def __view_product_list(self) :
@@ -98,8 +98,8 @@ class ConsoleUI :
     def __view_products_in_budget(self) :
         price = input("Budget : ")
         self.__product_validator.price_validator(price)
-        if self.__client_service.products_in_budget(float(price)) is not None :
-            self.__client_service.products_in_budget(float(price))
+        if len(self.__client_service.products_in_budget(float(price))) >= 1 :
+            print(*self.__client_service.products_in_budget(float(price)) , sep = "\n\n")
         else :
             print("No products in budget!")
     

@@ -18,7 +18,7 @@ class ClientService :
         if pos is None :
             raise NotFoundException(identification_code)
         else :
-            if self.__product_list[pos].get_quantity() < requested_quantity :
+            if int(self.__product_list[pos].get_quantity()) < requested_quantity :
                 print("Please select a lower quantity")
             elif self.__product_list[pos].get_quantity() == requested_quantity :
                 with open("products.txt" , "r") as f :
@@ -51,7 +51,8 @@ class ClientService :
             if float(product.get_price()) <= given_price :
                 ans.append(product)
         ans = sorted(ans , key = lambda x : x.get_price() , reverse = True) 
-        print(*ans , sep = "\n\n")
+        return ans
+    
     def products_in_promotion(self) :
         self.__promotion_list = sorted(self.__promotion_list , key = lambda x : x.get_value(), reverse = True)
         prices_after_promotion = {}
