@@ -33,7 +33,7 @@ class AdminService :
             content = f.readlines()
         with open("products.txt" , "w") as g :
             for line in content :
-                if line.strip("\n").split(" , ")[1] != identification_code :
+                if line.strip("\n").split(" , ")[0] != identification_code :
                    g.write(line)
         del self.__product_list[pos]
         
