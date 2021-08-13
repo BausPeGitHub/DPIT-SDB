@@ -25,7 +25,7 @@ class ClientService :
                      content = f.readlines()
                 with open("products.txt" , "w") as g :
                     for line in content :
-                        if line.strip("\n").split(" , ")[1] != identification_code :
+                        if line.strip("\n").split(" , ")[0] != identification_code :
                             g.write(line)
                 del self.__product_list[pos]
                 print("Product bought successfully")
@@ -36,7 +36,7 @@ class ClientService :
                     content = f.readlines()
                 with open("products.txt" , "w") as g :
                     for line in content :
-                        if line.strip("\n").split(" , ")[1] != identification_code :
+                        if line.strip("\n").split(" , ")[0] != identification_code :
                             g.write(line)
                         else :
                             g.write(str(self.__product_list[pos].get_code()) + " , " + str(self.__product_list[pos].get_name()) + " , " + str(self.__product_list[pos].get_firm()) + " , " + str(self.__product_list[pos].get_price()) + " , " + str(self.__product_list[pos].get_quantity()))
