@@ -19,12 +19,29 @@ class ClientService :
             raise NotFoundException(identification_code)
         else :
             if self.__product_list[pos].get_quantity() < requested_quantity :
-                return "Please select a lower quantity"
+                print("Please select a lower quantity")
             elif self.__product_list[pos].get_quantity() == requested_quantity :
+                with open("products.txt" , "r") as f :
+                     content = f.readlines()
+                with open("products.txt" , "w") as g :
+                    for line in content :
+                        if line.strip("\n").split(" , ")[1] != identification_code :
+                            g.write(line)
                 del self.__product_list[pos]
+                print("Product bought successfully")
             else :
+                print("Product bought successfully")
                 self.__product_list[pos].set_quantity(self.__product_list[pos].get_quantity() - requested_quantity)
-    
+                with open("products.txt" , "r") as f :
+                    content = f.readlines()
+                with open("products.txt" , "w") as g :
+                    for line in content :
+                        if line.strip("\n").split(" , ")[1] != identification_code :
+                            g.write(line)
+                        else :
+                            g.write(str(self.__product_list[pos].get_code()) + " , " + str(self.__product_list[pos].get_name()) + " , " + str(self.__product_list[pos].get_firm()) + " , " + str(self.__product_list[pos].get_price()) + " , " + str(self.__product_list[pos].get_quantity()))
+                            g.write("\n")
+                        
     def get_all(self) :
         return self.__product_list
 

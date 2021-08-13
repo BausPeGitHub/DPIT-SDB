@@ -39,6 +39,8 @@ class AdminService :
         
     def update_product(self , identification_code : str , new_code , new_name , new_firm , new_price , new_quantity) :
         pos = self.__position(identification_code) 
+        if pos is None :
+            raise NotFoundException(identification_code)
         self.__product_list[pos].set_code(new_code)
         self.__product_list[pos].set_name(new_name)
         self.__product_list[pos].set_firm(new_firm)
