@@ -63,7 +63,10 @@ class ConsoleUI :
         
     def __view_firm_product_list(self) :
         firm_name = input("Firm name : ")
-        print(*self.__admin_service.get_all_from_firm(firm_name) , sep = "\n\n")
+        if len(self.__admin_service.get_all_from_firm(firm_name)) != 0 :
+            print(*self.__admin_service.get_all_from_firm(firm_name) , sep = "\n\n")
+        else :
+            print("No products from selected firm!")
         
     def __new_promotion(self) :
         value = input("Promotion value : ")
@@ -91,7 +94,6 @@ class ConsoleUI :
         product_quantity = input("Product quantity : ")
         self.__product_validator.quantity_validator(product_quantity)
         self.__client_service.buy_product(product_code , int(product_quantity))
-        print("Product bought successfully")
     
     def __view_products_in_budget(self) :
         price = input("Budget : ")

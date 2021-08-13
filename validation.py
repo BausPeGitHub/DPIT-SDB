@@ -21,7 +21,7 @@ class ProductValidator :
         try :
             int_quantity = int(quantity)
         except Exception :
-            raise ValidationError("Quantity must be a real number")
+            raise ValidationError("Quantity must be a natural number")
             
 class PromotionValidator :
     def __init__(self) :
